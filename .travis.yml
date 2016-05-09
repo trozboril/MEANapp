@@ -1,15 +1,17 @@
 language: node-js
-
 node_js:
-  - "5.3.0"
-  - "4.1"
-  - "4.0"
-  - '0.12'
-  - '0.11'
-
+- 5.3.0
+- '4.1'
+- '4.0'
+- '0.12'
+- '0.11'
 services: mongodb
-
-before_script:
-  -npm install -g mocha
-
+before_script: -npm install -g mocha
 script: mocha
+deploy:
+  provider: heroku
+  api_key:
+    secure: dNiIM9n2C3umRVBqfqydtW9hZeDyr2yqelgYB0oPQhxiCqDjcrU+pqU86F9GelVOwRGzXJmcISkS3aVXt8P4hY3IaTZX1o1f9qL3ZJqaBSGqwxubBLcaFjiV+VriF3FazOI3N/CW3VtI4w2ETmB1i/k4qPIPVYx3zyGzUghTYRAathCT9qDZQHPy1Ll6yHnAJ9Nk38kFe/f5cYX7iJ7TdxUaXcAjszuLElU/7lDOTnQTeM/ISvffiOKaNrgeM2QzqypG+VQWKwpTAOR0fBXZukJOviu1/tIcjSjtEPrI08HmNtH3813ywb5X3RNAzHXe0GgIn58sGsxPnAi2j0xnRiWScW+zdfJATkWkEL0xDrWfQFUAEbKnS6QmooGShOFOncX0Vx+1PLrbNZmhn9NfPBimxqY0FhDjyTUD6XZzFO8D6So1+9k1xLGO8ydXMaSQFKbEJsgSefhTyGoB6uUKu1c87/eEvjvPDghJ+XRqNjGSf6Ae8993MbOrbNk45jn7AyqJcHVTJlfcNVdajHwkrgeSdKa6dTQjyEUAQ5vwADjeHHatzGhxVBBXO6dnwc+14um74UvnDuWB3FOOSLDaKbMSB3iB9eiR+v5tv5cT6pmJ6STDF9PXkj0cGKTdF8Wmhefzbj8/OIYY1otIwXKNCcvyfBN1kI1IJ+EPb2sU4lc=
+  app: mean-app-tdd
+  on:
+    repo: trozboril/MEANapp
